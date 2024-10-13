@@ -1,0 +1,43 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "BuyIT.Api.Gateway";
+
+service AuthService {
+  rpc Register (RegistrationRequest) returns (RegistrationResponse);
+  rpc Login (LoginRequest) returns (LoginResponse);
+  rpc AssignRole (AssignRoleRequest) returns (AssignRoleResponse);
+}
+
+message RegistrationRequest {
+  string email = 1;
+  string password = 2;
+  string name = 3;
+  string phoneNumber = 4;
+  string roleName = 5;
+}
+
+message RegistrationResponse {
+  bool success = 1;
+  string message = 2;
+}
+
+message LoginRequest {
+  string email = 1;
+  string password = 2;
+}
+
+message LoginResponse {
+  bool success = 1;
+  string token = 2;
+  string message = 3;
+}
+
+message AssignRoleRequest {
+  string email = 1;
+  string roleName = 2;
+}
+
+message AssignRoleResponse {
+  bool success = 1;
+  string message = 2;
+}

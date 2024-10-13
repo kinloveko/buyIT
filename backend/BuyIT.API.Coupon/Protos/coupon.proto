@@ -1,0 +1,54 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "BuyIT.Api.Coupon";
+
+service CouponService {
+  rpc GetAllCoupons (CouponRequest) returns (CouponResponse);
+  rpc GetCouponByCode (CouponCodeRequest) returns (CouponResponse);
+  rpc CreateCoupon (CreateCouponRequest) returns (CouponResponse);
+  rpc UpdateCoupon (UpdateCouponRequest) returns (CouponResponse);
+  rpc DeleteCoupon (DeleteCouponRequest) returns (DeleteCouponResponse);
+}
+
+message CouponRequest {
+  string searchTerm = 1;
+}
+
+message CouponCodeRequest {
+  string couponCode = 1;
+}
+
+message CreateCouponRequest {
+  string couponCode = 1;
+  double discountAmount = 2;
+  double minAmount = 3;
+}
+
+message UpdateCouponRequest {
+  int32 couponId = 1;
+  string couponCode = 2;
+  double discountAmount = 3;
+  double minAmount = 4;
+}
+
+message DeleteCouponRequest {
+  int32 couponId = 1;
+}
+
+message CouponResponse {
+  repeated Coupon coupons = 1;
+  string message = 2;
+  bool success = 3;
+}
+
+message DeleteCouponResponse {
+  string message = 1;
+  bool success = 2;
+}
+
+message Coupon {
+  int32 couponId = 1;
+  string couponCode = 2;
+  double discountAmount = 3;
+  double minAmount = 4;
+}

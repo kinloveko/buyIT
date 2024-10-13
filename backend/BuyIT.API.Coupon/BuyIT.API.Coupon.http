@@ -1,0 +1,6 @@
+@BuyIT.API.Coupon_HostAddress = http://localhost:5155
+
+GET {{BuyIT.API.Coupon_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

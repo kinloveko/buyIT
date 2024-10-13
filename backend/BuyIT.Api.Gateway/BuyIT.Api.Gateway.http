@@ -1,0 +1,6 @@
+@BuyIT.Api.Gateway_HostAddress = http://localhost:5226
+
+GET {{BuyIT.Api.Gateway_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
